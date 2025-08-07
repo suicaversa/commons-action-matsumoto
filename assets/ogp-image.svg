@@ -1,0 +1,36 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Light background -->
+  <rect width="1200" height="630" fill="#f8f9fa"/>
+  
+  <!-- Yellow circle background -->
+  <circle cx="600" cy="315" r="180" fill="#e6ff33"/>
+  
+  <!-- Main text styling -->
+  <style>
+    .main-text {
+      font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
+      font-weight: 900;
+      font-size: 84px;
+      fill: #000000;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+    .action-text {
+      font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
+      font-weight: 900;
+      font-size: 84px;
+      fill: #000000;
+      text-anchor: middle;
+      dominant-baseline: middle;
+    }
+  </style>
+  
+  <!-- COMMONS text -->
+  <text x="600" y="240" class="main-text">COMMONS</text>
+  
+  <!-- ACTION text (overlapping the yellow circle) -->
+  <text x="600" y="315" class="action-text">ACTION</text>
+  
+  <!-- MATSUMOTO text -->
+  <text x="600" y="390" class="main-text">MATSUMOTO.</text>
+</svg>

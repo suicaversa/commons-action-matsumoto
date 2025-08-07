@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Generate OGP Thumbnail</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .thumbnail-canvas {
+            width: 1200px;
+            height: 630px;
+            background: #f8f9fa;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc;
+        }
+        .logo-container {
+            position: relative;
+            text-align: center;
+        }
+        .yellow-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 360px;
+            height: 360px;
+            background: #e6ff33;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .text-content {
+            position: relative;
+            z-index: 2;
+            font-family: 'Arial Black', Arial, sans-serif;
+            font-weight: 900;
+            font-size: 84px;
+            color: #000000;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+        .commons { margin-bottom: 10px; }
+        .action { margin: 10px 0; }
+        .matsumoto { margin-top: 10px; }
+        
+        .instructions {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>OGP Thumbnail Generator</h1>
+    <p>This is what the horizontal thumbnail should look like:</p>
+    
+    <div class="thumbnail-canvas" id="thumbnail">
+        <div class="logo-container">
+            <div class="yellow-circle"></div>
+            <div class="text-content">
+                <div class="commons">COMMONS</div>
+                <div class="action">ACTION</div>
+                <div class="matsumoto">MATSUMOTO.</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <h2>Instructions for creating the PNG thumbnail:</h2>
+        <p>1. Open this HTML file in a browser</p>
+        <p>2. Take a screenshot of the thumbnail area (1200x630 pixels)</p>
+        <p>3. Save it as <code>assets/ogp-image.png</code></p>
+        <p>Alternatively, run the Python script: <code>python3 create_ogp_image.py</code></p>
+    </div>
+
+    <script>
+        // Optional: Add canvas-based generation capability
+        function generateThumbnail() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 630;
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#f8f9fa';
+            ctx.fillRect(0, 0, 1200, 630);
+            
+            // Yellow circle
+            ctx.fillStyle = '#e6ff33';
+            ctx.beginPath();
+            ctx.arc(600, 315, 180, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Text
+            ctx.fillStyle = '#000000';
+            ctx.font = 'bold 84px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            ctx.fillText('COMMONS', 600, 240);
+            ctx.fillText('ACTION', 600, 315);
+            ctx.fillText('MATSUMOTO.', 600, 390);
+            
+            // Convert to blob and download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'ogp-image.png';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+        }
+        
+        console.log('To generate PNG: call generateThumbnail() in console');
+    </script>
+</body>
+</html>
