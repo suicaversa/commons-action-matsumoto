@@ -212,10 +212,14 @@ body::before {
   transform: translateY(-2px);
 }
 
-.hero-image {
+.hero-image-desktop {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hero-image-mobile {
+  display: none;
 }
 
 .hero-visual {
@@ -822,6 +826,17 @@ footer {
   .hero-visual {
     width: 380px;
     height: 380px;
+  }
+  
+  .hero-image-desktop {
+    display: none;
+  }
+  
+  .hero-image-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0;
   }
   
   .hero-buttons {
